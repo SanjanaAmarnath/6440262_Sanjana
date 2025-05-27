@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Box Model & Layout Control</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Styling the event card with margin, padding, border */
+    .eventCard {
+      border: 2px solid #007BFF;
+      padding: 20px;
+      margin: 20px 0;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      width: 300px;
+    }
+
+    /* Form input with outline on focus */
+    input[type="text"] {
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus {
+      outline: 3px solid #007BFF;
+      outline-offset: 2px;
+    }
+
+    /* Boxes to demonstrate visibility vs display */
+    .box {
+      width: 150px;
+      height: 100px;
+      background-color: #007BFF;
+      color: white;
+      line-height: 100px;
+      text-align: center;
+      margin: 10px;
+      display: inline-block;
+      font-weight: bold;
+      border-radius: 6px;
+    }
+
+    .hidden {
+      visibility: hidden; /* Takes space but invisible */
+    }
+
+    .none {
+      display: none; /* Removed from layout */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Event Card Example</h2>
+  <div class="eventCard">
+    <h3>Community Clean-up</h3>
+    <p>Date: June 20, 2025</p>
+    <p>Location: Riverside Park</p>
+  </div>
+
+  <h2>Form Field with Outline on Focus</h2>
+  <form>
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" name="name" placeholder="Enter your name" />
+  </form>
+
+  <h2>Visibility vs Display Demo</h2>
+  <div class="box">Visible Box</div>
+  <div class="box hidden">visibility: hidden</div>
+  <div class="box none">display: none</div>
+
+  <p>
+    Notice: The box with <code>visibility: hidden</code> is invisible but still occupies space.
+    The box with <code>display: none</code> is removed completely from the layout.
+  </p>
+
+</body>
+</html>

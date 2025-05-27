@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Community Event Portal</title>
+</head>
+<body>
+
+  <select id="categoryFilter">
+    <option value="All">All</option>
+    <option value="Music">Music</option>
+    <option value="Wellness">Wellness</option>
+  </select>
+
+  <input type="text" id="searchInput" placeholder="Search events..." />
+
+  <div id="events-container"></div>
+
+  <script>
+    const events = [
+      { name: "Yoga Workshop", seats: 5, category: "Wellness" },
+      { name: "Music Fest", seats: 0, category: "Music" },
+      { name: "Cooking Class", seats: 3, category: "Wellness" }
+    ];
+
+    const container = document.querySelector("#events-container");
+    const categoryFilter = document.querySelector("#categoryFilter");
+    const searchInput = document.querySelector("#searchInput");
+
+    function render(list) {
+      container.innerHTML = "";
+      list.forEach(event => {
+        const div = document.createElement("div");
+        div.textContent = `${event.name} (${event.category}) - Seats: ${event.seats}`;
+        const btn = document.createElement("button");
+        btn.textContent = "Register";
+        btn.disabled = event.seats === 0;
+        btn.onclick = () => {
+          event.seats--;
+          render(filterAndSearch());
+          alert(`Registered for ${event.name}`);
+        };
+        div.appendChild(btn);
+        container.appendChild(div);
+      });
+    }
+
+    function filterAndSearch() {
+      const cat = categoryFilter.value;
+      const search = searchInput.value.toLowerCase();
+      return events.filter(e =>
+        (cat === "All" || e.category === cat) &&
+        e.name.toLowerCase().includes(search)
+      );
+    }
+
+    categoryFilter.onchange = () => render(filterAndSearch());
+    searchInput.onkeydown = () => setTimeout(() => render(filterAndSearch()), 0);
+
+    render(events);
+  </script>
+
+</body>
+</html>

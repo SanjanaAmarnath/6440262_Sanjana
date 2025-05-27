@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Responsive Web Design Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Basic reset and styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navigation container with flexbox */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #007BFF;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    /* Navigation links */
+    nav a {
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      flex: 1; /* Equal width links */
+      transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #0056b3;
+    }
+
+    /* Main content image */
+    .hero-image {
+      width: 80vw; /* Responsive width */
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Main heading */
+    h1 {
+      font-size: 4vw; /* Responsive font size */
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    /* Paragraph text */
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* Media query for screens smaller than 768px */
+    @media (max-width: 768px) {
+      /* Stack nav links vertically */
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav a {
+        flex: none;
+        padding: 12px 0;
+        border-bottom: 1px solid #0056b3;
+      }
+
+      nav a:last-child {
+        border-bottom: none;
+      }
+
+      /* Smaller font size for heading and paragraph */
+      h1 {
+        font-size: 6vw;
+      }
+
+      p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+
+      /* Smaller image */
+      .hero-image {
+        width: 95vw;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Events</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <h1>Welcome to the Community Portal</h1>
+  <img
+    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+    alt="Community Event"
+    class="hero-image"
+  />
+  <p>
+    Explore upcoming events, news, and opportunities in your local community. Stay connected and get involved!
+  </p>
+
+</body>
+</html>

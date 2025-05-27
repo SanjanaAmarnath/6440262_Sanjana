@@ -1,0 +1,21 @@
+/* Set a fallback background color and a background image */
+body {
+  background-color: #e0f7fa; /* Fallback color (light blue) */
+  background-image: url('city-skyline.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: rgba(0, 0, 0, 0.8); /* Slightly transparent black text */
+  font-family: sans-serif;
+  padding: 20px;
+}
+
+/* Gradient background for section headers */
+.section-header {
+  background: linear-gradient(to right, #007BFF, #00BCD4); /* Blue gradient */
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

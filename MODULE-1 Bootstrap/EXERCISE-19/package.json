@@ -1,0 +1,3 @@
+"scripts": {
+  "sass": "sass scss/custom.scss css/custom.css --no-source-map --style=compressed"
+}

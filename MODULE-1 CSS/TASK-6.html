@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Link and List Styling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ✅ Link styling with pseudo-classes */
+    a:link {
+      color: #007BFF; /* Normal link color */
+      text-decoration: none;
+    }
+
+    a:visited {
+      color: #6c757d; /* Color after clicking */
+    }
+
+    a:hover {
+      color: #0056b3; /* Color when hovered */
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: #ff0000; /* Color while clicking */
+    }
+
+    /* ✅ Navigation menu styling (removing bullets) */
+    nav ul {
+      list-style-type: none;       /* Remove bullets */
+      list-style-position: inside; /* Items align with text */
+      padding: 0;
+      margin: 0;
+    }
+
+    nav li {
+      margin: 10px 0;              /* Space between items */
+      padding: 5px 10px;
+      background-color: #f0f0f0;   /* Light background */
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Navigation Menu</h2>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <p>Clicking a link will change its visited color.</p>
+
+</body>
+</html>

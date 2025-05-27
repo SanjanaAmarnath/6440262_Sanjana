@@ -1,0 +1,12 @@
+/* Button to grab attention */
+.cta-button {
+  background-color: #007BFF; /* Blue background */
+  color: white;              /* White text */
+  padding: 10px 20px;        /* Space inside the button */
+  border: none;              /* No border */
+}
+
+/* What happens when you hover over it */
+.cta-button:hover {
+  background-color: #0056b3; /* A darker blue */
+}

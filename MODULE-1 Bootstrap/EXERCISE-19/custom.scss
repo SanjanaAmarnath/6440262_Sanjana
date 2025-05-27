@@ -1,0 +1,10 @@
+// Import Bootstrap functions and variables first
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+// Customize variables here
+$primary: #ff5722;       // change primary color to orange
+$border-radius: 1.5rem;  // increase border radius
+
+// Import rest of Bootstrap
+@import "node_modules/bootstrap/scss/bootstrap";

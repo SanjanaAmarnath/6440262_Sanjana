@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap JS Plugin Example</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container text-center mt-5">
+    <h1 class="text-danger">Bootstrap JS Plugin Example</h1>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#demo">
+      Toggle Info
+    </button>
+    <div class="collapse mt-3" id="demo">
+      <div class="card card-body">
+        This is some hidden content revealed using Bootstrap's JavaScript plugin!
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Include Bootstrap JS with Popper (essential for tooltips, collapse, etc.) -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* Reset all margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style all h2 elements */
+h2 {
+  color: #333;                /* Dark text */
+  font-size: 24px;            /* Bigger heading */
+  margin-bottom: 10px;
+}
+
+/* Style the header with a specific ID */
+#mainHeader {
+  background-color: #007BFF;  /* Blue background */
+  color: white;               /* White text */
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style for all event cards */
+.eventCard {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+/* Style for both h3 and p elements */
+h3, p {
+  font-family: Arial, sans-serif;
+  color: #444;
+  margin-bottom: 8px;
+}
