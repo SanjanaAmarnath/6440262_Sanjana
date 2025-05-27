@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Feedback</title>
+  <style>
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 15px;
+      border: 2px solid #007BFF;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #charCount {
+      font-size: 0.9rem;
+      margin-top: 5px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="feedbackForm">
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" name="phone" placeholder="e.g. 123-456-7890" onblur="validatePhone()" />
+
+    <label for="eventSelect">Select Event:</label>
+    <select id="eventSelect" name="eventSelect" onchange="displayFee()">
+      <option value="" disabled selected>Select an event</option>
+      <option value="marathon" data-fee="25">Marathon</option>
+      <option value="festival" data-fee="15">Food Festival</option>
+      <option value="concert" data-fee="30">Music Concert</option>
+    </select>
+    <p id="eventFee"></p>
+
+    <label for="feedback">Feedback:</label>
+    <textarea id="feedback" name="feedback" rows="4" placeholder="Your feedback here..." onkeydown="countChars()" onkeyup="countChars()"></textarea>
+    <div id="charCount">Characters: 0</div>
+
+    <img src="community-event.jpg" alt="Community Event" style="width:200px; margin-top: 15px; cursor:pointer;" ondblclick="enlargeImage(this)" />
+
+    <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+  </form>
+
+  <script>
+    function validatePhone() {
+      const phoneInput = document.getElementById('phone');
+      const phone = phoneInput.value.trim();
+      // Simple phone regex (US format)
+      const phoneRegex = /^\d{3}[-.\s]?\d{3}[-.\s]?\d{4}$/;
+      if (phone && !phoneRegex.test(phone)) {
+        alert('Please enter a valid phone number (e.g., 123-456-7890).');
+        phoneInput.focus();
+      }
+    }
+
+    function displayFee() {
+      const select = document.getElementById('eventSelect');
+      const feeDisplay = document.getElementById('eventFee');
+      const selectedOption = select.options[select.selectedIndex];
+      const fee = selectedOption.getAttribute('data-fee');
+      if (fee) {
+        feeDisplay.textContent = `Event Fee: $${fee}`;
+      } else {
+        feeDisplay.textContent = '';
+      }
+    }
+
+    function submitFeedback() {
+      alert('Thank you for your feedback!');
+    }
+
+    function enlargeImage(img) {
+      if (img.style.width === '400px') {
+        img.style.width = '200px';
+      } else {
+        img.style.width = '400px';
+      }
+    }
+
+    function countChars() {
+      const feedback = document.getElementById('feedback');
+      const charCount = document.getElementById('charCount');
+      charCount.textContent = `Characters: ${feedback.value.length}`;
+    }
+  </script>
+
+</body>
+</html>

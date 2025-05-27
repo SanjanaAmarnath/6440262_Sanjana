@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Event Promo Video</title>
+  <style>
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Watch Our Event Promo</h2>
+
+  <video id="promoVideo" width="640" controls oncanplay="videoReady()">
+    <source src="promo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="message"></div>
+
+  <script>
+    function videoReady() {
+      document.getElementById('message').textContent = "Video ready to play";
+    }
+
+    // Warn users if they try to leave with an unfinished form (simulate with confirm)
+    window.onbeforeunload = function(event) {
+      // Customize the message for supported browsers
+      const message = "You have unsaved changes. Are you sure you want to leave?";
+      event.preventDefault();
+      event.returnValue = message;  // For Chrome and most browsers
+      return message;               // For older browsers
+    };
+  </script>
+
+</body>
+</html>

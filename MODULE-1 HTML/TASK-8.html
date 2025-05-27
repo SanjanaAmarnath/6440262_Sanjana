@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Save User Preferences</title>
+  <style>
+    #preferences {
+      max-width: 300px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="preferences">
+    <label for="eventType">Preferred Event Type:</label>
+    <select id="eventType">
+      <option value="" disabled>Select an event type</option>
+      <option value="marathon">Marathon</option>
+      <option value="festival">Food Festival</option>
+      <option value="concert">Music Concert</option>
+    </select>
+
+    <button id="clearPrefs">Clear Preferences</button>
+  </div>
+
+  <script>
+    const select = document.getElementById('eventType');
+    const clearBtn = document.getElementById('clearPrefs');
+
+    // Load saved preference on page load
+    window.onload = () => {
+      const savedEventType = localStorage.getItem('preferredEventType');
+      if (savedEventType) {
+        select.value = savedEventType;
+      }
+    };
+
+    // Save preference on change
+    select.addEventListener('change', () => {
+      localStorage.setItem('preferredEventType', select.value);
+      sessionStorage.setItem('preferredEventTypeSession', select.value);
+      alert(`Preference saved: ${select.options[select.selectedIndex].text}`);
+    });
+
+    // Clear preferences on button click
+    clearBtn.addEventListener('click', () => {
+      localStorage.removeItem('preferredEventType');
+      sessionStorage.removeItem('preferredEventTypeSession');
+      select.value = "";
+      alert('Preferences cleared!');
+    });
+  </script>
+
+</body>
+</html>

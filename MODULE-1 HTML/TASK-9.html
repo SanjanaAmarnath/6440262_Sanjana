@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find Nearby Events</title>
+  <style>
+    #result {
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid #007BFF;
+      background-color: #007BFF;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Find Nearby Events</h2>
+  <button id="findEventsBtn">Find Nearby Events</button>
+
+  <div id="result"></div>
+
+  <script>
+    const result = document.getElementById('result');
+    const btn = document.getElementById('findEventsBtn');
+
+    btn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        result.textContent = 'Geolocation is not supported by your browser.';
+        return;
+      }
+
+      result.textContent = 'Locating...';
+
+      navigator.geolocation.getCurrentPosition(success, error, {
+        enableHighAccuracy: true,
+        timeout: 10000,         // 10 seconds timeout
+        maximumAge: 0           // No cache
+      });
+    });
+
+    function success(position) {
+      const lat = position.coords.latitude.toFixed(6);
+      const lon = position.coords.longitude.toFixed(6);
+
+      result.innerHTML = `
+        <p>Latitude: ${lat}</p>
+        <p>Longitude: ${lon}</p>
+        <p>Use these coordinates to find nearby events.</p>
+      `;
+    }
+
+    function error(err) {
+      switch(err.code) {
+        case err.PERMISSION_DENIED:
+          result.textContent = 'Permission denied. Please allow location access.';
+          break;
+        case err.POSITION_UNAVAILABLE:
+          result.textContent = 'Location information is unavailable.';
+          break;
+        case err.TIMEOUT:
+          result.textContent = 'The request to get your location timed out.';
+          break;
+        default:
+          result.textContent = 'An unknown error occurred.';
+          break;
+      }
+    }
+  </script>
+
+</body>
+</html>
