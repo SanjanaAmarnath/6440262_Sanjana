@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Promo Video</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    #videoStatus {
+      font-weight: bold;
+      color: green;
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-top: 20px;
+      max-width: 400px;
+    }
+
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Welcome to Our Upcoming Event!</h2>
+
+  <video id="promoVideo" controls oncanplay="videoReadyMessage()">
+    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+
+  <div id="videoStatus"></div>
+
+  <form id="interestForm">
+    <h3>Register Your Interest</h3>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    let formSubmitted = false;
+
+    function videoReadyMessage() {
+      document.getElementById('videoStatus').textContent = "🎬 Video ready to play!";
+    }
+
+    document.getElementById('interestForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      formSubmitted = true;
+      alert("Thanks for registering your interest!");
+      this.reset();
+    });
+
+    window.onbeforeunload = function (e) {
+      if (!formSubmitted) {
+        return "You have unsaved changes. Are you sure you want to leave?";
+      }
+    };
+  </script>
+</body>
+</html>

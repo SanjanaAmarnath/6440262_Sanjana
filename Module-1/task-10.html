@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Debugging Example</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: coral;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Debugging Demo</h2>
+  <button onclick="resizeBox()">Resize Box</button>
+  <div id="box"></div>
+
+  <script>
+    function resizeBox() {
+      console.log("Resizing box...");
+
+      const box = document.getElementById("box");
+      const newSize = 200;
+
+      box.style.width = newSize + "px";
+      box.style.height = newSize + "px";
+
+      let user = null;
+      // Intentional error for debug
+      console.log("User length is:", user.length); // This will throw an error
+    }
+  </script>
+</body>
+</html>
