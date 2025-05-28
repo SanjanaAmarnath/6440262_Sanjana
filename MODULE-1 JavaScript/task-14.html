@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>jQuery Demo</title>
+  <!-- Include jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #eventCard {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+      width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="registerBtn">Register</button>
+
+  <div id="eventCard">
+    <h3>Event Details</h3>
+    <p>This event is awesome!</p>
+  </div>
+
+  <script>
+    // jQuery code here
+    $('#registerBtn').click(() => {
+      if ($('#eventCard').is(':visible')) {
+        $('#eventCard').fadeOut();
+      } else {
+        $('#eventCard').fadeIn();
+      }
+    });
+  </script>
+</body>
+</html>

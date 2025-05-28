@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Events Interactive</title>
+  <style>
+    .event-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px 0;
+      background: #f9f9f9;
+    }
+    .event-card h3 {
+      margin: 0;
+    }
+    .event-card button {
+      margin-top: 8px;
+    }
+    #controls {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Community Events</h1>
+
+  <div id="controls">
+    <label>
+      Filter by Category:
+      <select id="categoryFilter">
+        <option value="All">All</option>
+        <option value="Music">Music</option>
+        <option value="Tech">Tech</option>
+        <option value="Cooking">Cooking</option>
+      </select>
+    </label>
+
+    <label style="margin-left:20px;">
+      Quick Search by Name:
+      <input type="text" id="searchInput" placeholder="Type to search..." />
+    </label>
+  </div>
+
+  <div id="event-container"></div>
+
+  <script src="main.js"></script>
+</body>
+</html>

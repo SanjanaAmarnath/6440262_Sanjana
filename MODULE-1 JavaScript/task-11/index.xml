@@ -1,0 +1,26 @@
+<form id="registrationForm">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <span class="error" id="nameError"></span>
+  </div>
+  
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" />
+    <span class="error" id="emailError"></span>
+  </div>
+  
+  <div>
+    <label for="event">Select Event:</label>
+    <select id="event" name="event">
+      <option value="">--Please choose an event--</option>
+      <option value="workshop">Workshop</option>
+      <option value="seminar">Seminar</option>
+      <option value="networking">Networking</option>
+    </select>
+    <span class="error" id="eventError"></span>
+  </div>
+  
+  <button type="submit">Register</button>
+</form>
